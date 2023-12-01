@@ -13,3 +13,56 @@
  *= require_tree .
  *= require_self
  */
+
+#logo {
+    border-radius: 5px;
+    margin: auto;
+    font-size: 1.7em;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+
+}
+
+#logo:hover{
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.navbar-toggler {
+    background-color: transparent;
+    border-color: #fff;
+    text-decoration-color: #fff;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(254, 141, 97)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.navbar {
+    background-color: #382F42;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 5px;
+}
+
+.nav-link{
+    color: #fff;
+    font-size: large;
+}
+
+.nav-link:hover{
+    color: #c1bfbf;
+}
+
+.navbar-nav .nav-link.active{
+    color: #FE8D61;
+}
+
+.navbar-nav .nav-link.active:hover{
+    color: #f4a98b;
+}
+
+.navbar span{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: smaller;
+}
