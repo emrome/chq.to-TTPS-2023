@@ -1,11 +1,26 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-<p class="navbar-text pull-right">
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
+<head>
+  <%= stylesheet_link_tag "home", "data-turbo-track": "reload" %>
+</head>
+
+<div class="row align-items-center">
+  <div class="col-md-6 offset-md-3 text-center">
+    <% if user_signed_in? %>
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title">Welcome back, <%= current_user.full_name %>!</h5>
+          <p class="card-text">You can manage your shortened links and view statistics on your dashboard.</p>
+          <a href="#" class="btn btn-primary" id="get-started-btn">Go to Dashboard</a>
+        </div>
+      </div>
+    <% else %>
+      <h1 class="intro-header">URL Shortener</h1>
+      <p class="lead color-primary">Shorten your URLs and manage them easily with Chq.To.</p>
+      <a href="<%= new_user_registration_path %>" class="btn btn-primary" id="get-started-btn">Get Started</a>  
+    <% end %>
+  </div>
+  <% if !user_signed_in? %>
+    <div class="col-md-6 offset-md-3 text-center">
+      <img src="<%= image_url("illustration.png") %>" alt="Illustration" class="img-fluid max-width-100 mt-4" id="illustration-img">
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,35 @@
+/* Home Page Styles */
+/* Custom Styles */
+.intro-header {
+    font-size: 3em;
+    font-weight: bold;
+    color: #030303;
+}
+
+.color-primary {
+    color: rgb(4, 4, 4);
+}
+
+#get-started-btn {
+    margin-top: 20px;
+    font-size: 1.2em;
+    background-color: #e7713f;
+    border: #FE8D61;
+    color: #292929;
+    font-weight: bold;
+}
+
+#ilustration-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    #ilustration-img {
+        width: 100%;
+    }
+    
+}

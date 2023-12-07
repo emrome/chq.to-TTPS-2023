@@ -14,6 +14,18 @@
  *= require_self
  */
 
+/* General */
+#main{
+    background-color: #574e619f;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 5px;
+	height: 100%;
+    flex: 1;
+}
+
+/* Navbar */
 #logo {
     border-radius: 5px;
     margin: auto;
@@ -21,11 +33,20 @@
     color: #fff;
     padding: 5px;
     text-align: center;
+}
 
+@media screen and (max-width: 768px) {
+    #logo span{
+        display: none;
+    }
+
+    #logo img {
+        width: 100%;        
+    }
 }
 
 #logo:hover{
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 1px 4px rgb(87, 78, 97), 0 0 40px rgba(87, 78, 97, 0.1) inset;
 }
 
 .navbar-toggler {
@@ -40,12 +61,10 @@
 
 .navbar {
     background-color: #382F42;
-    border-radius: 10px;
-    margin: 10px;
     padding: 5px;
 }
 
-.nav-link{
+.nav-link, .dropdown-item{
     color: #fff;
     font-size: large;
 }
@@ -54,8 +73,17 @@
     color: #c1bfbf;
 }
 
-.navbar-nav .nav-link.active{
+.navbar-nav .nav-link.active, .navbar-nav .dropdown-item.active{
     color: #FE8D61;
+}
+
+.navbar-nav .dropdown-item.active{
+    background-color: transparent;
+}
+
+.navbar-nav .dropdown-item.active:hover{
+    background-color: #FE8D61;
+    color: #fff;
 }
 
 .navbar-nav .nav-link.active:hover{
@@ -65,4 +93,46 @@
 .navbar span{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: smaller;
+}
+
+.dropdown-menu {
+  background-color: #3c3246;
+}
+
+.dropdown-menu a {
+  color: #fff;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu a:focus {
+  background-color: #FE8D61;
+  color: #fff;
+}
+
+
+/* Footer */
+
+footer {
+    display: block;
+    background-color: #382F42;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    position: relative;
+}
+
+/* More custom styles */
+
+.form {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #574e619f;
+    color: white;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    flex: 1;
 }
