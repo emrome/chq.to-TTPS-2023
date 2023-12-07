@@ -4,6 +4,10 @@ class LinksController < ApplicationController
   # GET /links or /links.json
   def index
     @links = current_user.links
+    if @links.empty?
+      flash[:info] = "You don't have any links yet. Create one!"
+    end
+
   end
 
   # GET /links/1 or /links/1.json
@@ -28,7 +32,7 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       if @link.save
-        format.html { redirect_to link_url(@link), notice: "Link was successfully created." }
+        format.html { redirect_to link_url(@link), success: "Link was successfully created." }
         format.json { render :show, status: :created, location: @link }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,7 +45,7 @@ class LinksController < ApplicationController
   def update
     respond_to do |format|
       if @link.update(link_params)
-        format.html { redirect_to link_url(@link), notice: "Link was successfully updated." }
+        format.html { redirect_to link_url(@link), success: "Link was successfully updated." }
         format.json { render :show, status: :ok, location: @link }
       else
         format.html { render :edit, status: :unprocessable_entity }
