@@ -1,0 +1,2 @@
+class TemporaryLink < ApplicationRecord
+end

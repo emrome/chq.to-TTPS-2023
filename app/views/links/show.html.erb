@@ -1,0 +1,8 @@
+<%= render @link %>
+
+<div>
+  <%= link_to "Edit this link", edit_link_path(@link), class: "btn btn-success" %>
+  <%= link_to "Back to links", links_path, class: "btn btn-default"%>
+
+  <%= button_to "Destroy this link", @link, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+</div>

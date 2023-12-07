@@ -9,7 +9,7 @@
         <div class="card-body">
           <h5 class="card-title">Welcome back, <%= current_user.full_name %>!</h5>
           <p class="card-text">You can manage your shortened links and view statistics on your dashboard.</p>
-          <a href="#" class="btn btn-primary" id="get-started-btn">Go to Dashboard</a>
+          <a href="<%= new_link_path %>" class="btn btn-primary" id="get-started-btn">Shorten a new link</a>
         </div>
       </div>
     <% else %>

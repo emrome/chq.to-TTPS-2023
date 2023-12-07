@@ -1,0 +1,15 @@
+<div id="<%= dom_id link %>">
+  <h4 class="card-subtitle mb-2">
+    Name: <%= link.name %>
+  </h4>
+  <p>
+    <strong>Url:</strong>
+    <%= link_to link.url %>
+  </p>
+
+  <p>
+    <strong>Shortened url:</strong>
+    <%= link_to link.slug, root_url + link.slug %>
+  </p>
+
+</div>

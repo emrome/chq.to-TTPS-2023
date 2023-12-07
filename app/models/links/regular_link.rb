@@ -1,0 +1,2 @@
+class RegularLink < ApplicationRecord
+end

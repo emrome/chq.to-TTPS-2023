@@ -9,7 +9,7 @@ class User < ApplicationRecord
     validates :first_name, :last_name, format: { with: /\A[a-zA-Z]+\z/ }
   end
 
-  has_many :links
+  has_many :links, dependent: :destroy
 
   def full_name
     "#{first_name} #{last_name}"
