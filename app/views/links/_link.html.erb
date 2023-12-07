@@ -4,12 +4,12 @@
   </h4>
   <p>
     <strong>Url:</strong>
-    <%= link_to link.url %>
+    <a href="<%= link.url %>" target="_blank"><%= link.url %></a>
   </p>
 
   <p>
     <strong>Shortened url:</strong>
-    <%= link_to link.slug, root_url + link.slug %>
+    <a href="<%= link.url %>" target="_blank"><%= link.shortened_url(request) %></a>
   </p>
 
 </div>

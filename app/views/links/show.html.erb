@@ -1,8 +1,7 @@
-<%= render @link %>
-
+<%= render "links/link", link: @link %>
 <div>
-  <%= link_to "Edit this link", edit_link_path(@link), class: "btn btn-success" %>
-  <%= link_to "Back to links", links_path, class: "btn btn-default"%>
+  <%= link_to "Edit this link", edit_link_path(@link), class: "btn btn-success-outline" %>
+  <%= link_to "Back to links", links_path, class: "btn btn-secondary-outline"%>
 
-  <%= button_to "Destroy this link", @link, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+  <%= button_to "Destroy this link", @link, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger-outline" %>
 </div>

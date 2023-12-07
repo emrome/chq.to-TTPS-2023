@@ -1,16 +1,13 @@
 <h1>Links</h1>
 
+<%= link_to "Create a link", new_link_path, class: "btn btn-primary-outline mb-3" %>
 <div id="links">
   <% @links.each do |link| %>
-  <div class="card mb-3">
-    <div class="card-body">
-      <%= render link %>
-      <p>
-        <%= link_to "Show this link", link %>
-      </p>
-    </div>
+  <div class="list-group-item">
+    <%= render "links/link", link: link %>
+    <p>
+      <%= link_to "Show this link", link %>
+    </p>
   </div>
   <% end %>
 </div>
-
-<%= link_to "New link", new_link_path %>

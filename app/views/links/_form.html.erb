@@ -23,7 +23,7 @@
 
   <div class="mt-3">
     <%= form.label :type, style: "display: block" %>
-    <%= form.select :type, ["RegularLink", "PrivateLink", "EphemeralLink", "TemporaryLink"], {}, class: "form-select" %>
+    <%= form.select :type, [["Regular", "RegularLink"], ["Private", "PrivateLink"], ["Ephemeral", "EphemeralLink"], ["Temporary", "TemporaryLink"]], {}, class: "form-select" %>
   </div>
 
   <div class="mt-3">

@@ -4,21 +4,20 @@ class LinksController < ApplicationController
   # GET /links or /links.json
   def index
     @links = current_user.links
+    
     if @links.empty?
-      flash[:info] = "You don't have any links yet. Create one!"
+      flash[:notice] = "You don't have any links yet. Create one!"
     end
 
   end
 
   # GET /links/1 or /links/1.json
   def show
-    @link = Link.where(id: params[:id], user: current_user).first
   end
 
   # GET /links/new
   def new
     @link = current_user.links.build
-    @link.type = params[:type]
   end
 
   # GET /links/1/edit
@@ -27,16 +26,16 @@ class LinksController < ApplicationController
 
   # POST /links or /links.json
   def create
-    @link = current_user.links.new(link_params)
-    @link.type = params[:type]
+    @link = current_user.links.build(link_params)
 
     respond_to do |format|
       if @link.save
         format.html { redirect_to link_url(@link), success: "Link was successfully created." }
         format.json { render :show, status: :created, location: @link }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        @link = @link.becomes(Link)
         format.json { render json: @link.errors, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_entity }
       end
     end
   end
@@ -65,17 +64,25 @@ class LinksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_link
-      begin
-      @link = Link.find(params[:id], user_id: current_user.id)
-      rescue ActiveRecord::RecordNotFound
-        redirect_to links_path, alert: 'Link not found.'
-      end
+
+  def set_link
+    @link = Link.find_by(id: params[:id])
+    if !user_signed_in?
+      flash[:error] = "You need to sign in or sign up before continuing."
+      redirect_to new_user_session_path
+    elsif !authorized?(@link)
+      flash[:error] = "You don't have access to this link."
+      redirect_to links_path
     end
 
-    # Only allow a list of trusted parameters through.
-    def link_params
-      params.require(:link).permit(:url, :slug, :name, :type, :password, :expiration_date)
-    end
+  end
+
+  def link_params
+    params.require(:link).permit(:url, :slug, :name, :type, :password, :expiration_date)
+  end
+
+  def authorized?(link)
+    link && link.user_id == current_user.id
+  end
+  
 end
