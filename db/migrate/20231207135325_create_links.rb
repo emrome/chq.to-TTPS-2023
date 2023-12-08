@@ -10,5 +10,9 @@ class CreateLinks < ActiveRecord::Migration[7.1]
       t.date :expiration_date
       t.timestamps
     end
+
+    add_index :links, :slug, unique: true
+    add_index :links, :url, unique: true
+
   end
 end
