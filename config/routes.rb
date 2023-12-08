@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   devise_scope :user do
       post 'users/sign_up', to: 'devise/registrations#create'
-      post 'users/edit', to: 'devise/registrations#update'
+      put 'users/edit', to: 'devise/registrations#update'
   end
 
   resources :links
