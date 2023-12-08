@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root "pages#home"
   devise_for :users
+  devise_scope :user do
+      post 'users/sign_up', to: 'devise/registrations#create'
+      post 'users/edit', to: 'devise/registrations#update'
+  end
 
   resources :links
   resources :private_links, controller: :links, type: "PrivateLink"

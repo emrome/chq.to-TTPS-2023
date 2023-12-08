@@ -1,10 +1,10 @@
-<% render "shared/form_layout" do %>
+<%= render 'shared/form_layout' do %>
   <div class="card-header">
     <h5 class="card-title">Sign up</h5>
   </div>
   <div class="card-body">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: users_sign_up_path) do |f| %>
+      <%= render "shared/error_messages", resource: resource %>
       <div class="form-custom ">
         <div class="field">
           <%= f.label :first_name, class: "form-label" %><br />

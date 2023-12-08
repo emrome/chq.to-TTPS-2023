@@ -16,7 +16,7 @@
 
 /* General */
 #main{
-    background-color: #e4e4e4;
+    background-color: #f4f4f4;
     font-family: 'Roboto', sans-serif;
     padding: 5px;
 	height: 100%;
@@ -140,4 +140,9 @@ footer {
 .form-custom {
     overflow-y: scroll;
     height: 300px;  
+}
+
+div.alert.alert-notice.alert-outline.alert-dismissible.fade.show {
+    border-color: #c1bfbf;
+    background: linear-gradient(90deg, #dad6d6 0%, #e0e0e0 50%, #dad6d6 100%);
 }
