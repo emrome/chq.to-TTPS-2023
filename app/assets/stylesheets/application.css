@@ -16,10 +16,8 @@
 
 /* General */
 #main{
-    background-color: #574e619f;
+    background-color: #e4e4e4;
     font-family: 'Roboto', sans-serif;
-    border-radius: 10px;
-    margin: 10px;
     padding: 5px;
 	height: 100%;
     flex: 1;
@@ -135,4 +133,11 @@ footer {
     font-weight: bold;
     text-align: center;
     flex: 1;
+}
+
+/* More custom styles */
+
+.form-custom {
+    overflow-y: scroll;
+    height: 300px;  
 }

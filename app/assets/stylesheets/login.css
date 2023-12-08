@@ -1,0 +1,24 @@
+body {
+    background-image: url("login-background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card-login {
+	background-color: rgba(255, 255, 255, 0.846);
+	padding: 20px;
+	border-radius: 5px;
+	height: 100%;
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+	.card-login {
+		max-width: 400px;
+		padding-bottom: 10px;
+	}
+}
