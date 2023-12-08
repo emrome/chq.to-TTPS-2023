@@ -79,7 +79,7 @@
     background-color: transparent;
 }
 
-.navbar-nav .dropdown-item.active:hover{
+.navbar-nav .dropdown-item.active:hover, button.dropdown-item:hover{
     background-color: #FE8D61;
     color: #fff;
 }
