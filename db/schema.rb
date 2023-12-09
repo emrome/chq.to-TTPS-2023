@@ -26,7 +26,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_07_143005) do
     t.string "name"
     t.integer "user_id", null: false
     t.string "type"
-    t.string "password_digest"
+    t.string "password"
     t.datetime "expiration_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

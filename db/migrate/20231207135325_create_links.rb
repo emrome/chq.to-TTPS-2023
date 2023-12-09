@@ -6,7 +6,7 @@ class CreateLinks < ActiveRecord::Migration[7.1]
       t.string :name
       t.references :user, null: false, foreign_key: true
       t.string :type
-      t.string :password_digest
+      t.string :password
       t.datetime :expiration_date
       t.timestamps
     end

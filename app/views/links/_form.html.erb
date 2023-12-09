@@ -20,9 +20,10 @@
     <%= form.password_field :password, class: "form-control" %>
   </div>
 
-  <div class="mt-3" data-conditional-field-target="expirationDateField", , style="display: none">
+  <div class="mt-3" data-conditional-field-target="expirationDateField", style="display: none">
     <%= form.label :expiration_date, class: "form-label" %>
-    <%= form.date_field :expiration_date, selected: Date.today, min: Date.today, class: "form-control" %>
+    <%= form.datetime_field :expiration_date, min: Date.today, class: "form-control" %>
+    <small><em>Select a date and insert a time of day</em></small>
   </div>
 
   <div class="mt-3">
