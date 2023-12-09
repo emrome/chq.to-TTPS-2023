@@ -1,16 +1,5 @@
-<%= form_with(model: link) do |form| %>
-  <% if link.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(link.errors.count, "error") %> prohibited this link from being saved:</h2>
-
-      <ul>
-        <% link.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_with(model: link, html: { data: { controller: "conditional-field" } }) do |form| %>
+  <%= render "shared/error_messages", resource: link %>
   <div class="mt-3">
     <%= form.label :url, style: "display: block", class: "form-label" %>
     <%= form.text_field :url, class: "form-control" %>
@@ -21,9 +10,19 @@
     <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="mt-3">
-    <%= form.label :type, style: "display: block" %>
+  <div class="mt-3" data-action="change->conditional-field#toggleFields">
+    <%= form.label :type, style: "display: block", class: "form-label" %>
     <%= form.select :type, [["Regular", "RegularLink"], ["Private", "PrivateLink"], ["Ephemeral", "EphemeralLink"], ["Temporary", "TemporaryLink"]], {}, class: "form-select" %>
+  </div>
+
+  <div class="mt-3", data-conditional-field-target="passwordField", style="display: none">
+    <%= form.label :password, class: "form-label" %>
+    <%= form.password_field :password, class: "form-control" %>
+  </div>
+
+  <div class="mt-3" data-conditional-field-target="expirationDateField", , style="display: none">
+    <%= form.label :expiration_date, class: "form-label" %>
+    <%= form.date_field :expiration_date, selected: Date.today, min: Date.today, class: "form-control" %>
   </div>
 
   <div class="mt-3">
