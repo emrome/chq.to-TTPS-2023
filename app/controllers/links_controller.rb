@@ -5,11 +5,6 @@ class LinksController < ApplicationController
   # GET /links or /links.json
   def index
     @links = current_user.links
-    
-    if @links.empty?
-      flash[:notice] = "You don't have any links yet. Create one!"
-    end
-
   end
 
   # GET /links/1 or /links/1.json
@@ -79,7 +74,9 @@ class LinksController < ApplicationController
   end
 
   def link_params
-    params.require(:link).permit(:url, :slug, :name, :type, :password, :expiration_date)
+    params.require(:link).permit(:url, :name, :type, :expiration_date).tap do |whitelisted|
+      whitelisted[:password] = params[:link][:password] if params[:link][:type] == 'PrivateLink'
+    end
   end
 
   def authorized?(link)
