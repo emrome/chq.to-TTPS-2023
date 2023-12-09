@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_07_143005) do
     t.integer "user_id", null: false
     t.string "type"
     t.string "password_digest"
-    t.date "expiration_date"
+    t.datetime "expiration_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["slug"], name: "index_links_on_slug", unique: true

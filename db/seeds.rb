@@ -12,7 +12,7 @@
 def log_accesses(link, ip_addresses, access_date = nil)
     link.save!
     ip_addresses.each do |ip_address|
-        date = access_date || DateTime.now
+        date = access_date || Time.zone.now
         link.access_logs.create(ip_address: ip_address, access_date: date)
     end
 end
@@ -64,7 +64,7 @@ EphemeralLink.create!(
 
 TemporaryLink.create!(
   url: 'https://doodles.google/search/',
-  expiration_date: Date.today,
+  expiration_date: Time.zone.now + 30.minutes,
   user: john_doe
 )
 
