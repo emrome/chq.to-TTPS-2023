@@ -13,7 +13,7 @@
 ActiveRecord::Schema[7.1].define(version: 2023_12_07_143005) do
   create_table "access_logs", force: :cascade do |t|
     t.string "ip_address", null: false
-    t.date "access_date", null: false
+    t.datetime "access_date", null: false
     t.integer "link_id", null: false
     t.index ["ip_address", "access_date"], name: "index_access_logs_on_ip_address_and_access_date", unique: true
     t.index ["link_id", "access_date"], name: "index_access_logs_on_link_id_and_access_date"
@@ -26,7 +26,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_07_143005) do
     t.string "name"
     t.integer "user_id", null: false
     t.string "type"
-    t.string "password"
+    t.string "password_digest"
     t.date "expiration_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

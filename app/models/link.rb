@@ -13,16 +13,12 @@ class Link < ApplicationRecord
     return "#{request.protocol}#{request.host_with_port}/l/#{slug}"
   end
 
-  def expired?
-    expiration_date.present? && expiration_date < Date.today
-  end
-
   private
 
   def generate_slug
-    candidate_slug = SecureRandom.hex(6)
+    candidate_slug = SecureRandom.hex(6)[0..5]
     while Link.exists?(slug: candidate_slug)
-      candidate_slug = SecureRandom.hex(6)
+      candidate_slug = SecureRandom.hex(6)[0..5]
     end
     self.slug = candidate_slug
   end
