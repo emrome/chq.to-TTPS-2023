@@ -1,11 +1,12 @@
-<h1>New link</h1>
-
-<%= render "form", link: @link %>
-
-<br>
-
-<div>
-  <%= link_to "Back to links", links_path %>
+<%= render 'shared/form_layout' do %>
+<div class="card-header">
+    <h5 class="card-title">New link</h5>
 </div>
-
-<p> <%= @link.class %> </p>
+<div class="card-body">
+  <%= render "form", link: @link %>
+  <br>
+  <div>
+    <%= link_to "Back to links", links_path %>
+  </div>
+</div>
+<% end %>

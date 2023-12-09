@@ -18,6 +18,7 @@ class LinksController < ApplicationController
 
   # GET /links/1/edit
   def edit
+    @link = @link.becomes(Link)
   end
 
   # POST /links or /links.json
@@ -26,7 +27,7 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       if @link.save
-        format.html { redirect_to link_url(@link), success: "Link was successfully created." }
+        format.html { redirect_to link_url(@link), flash: { success: "Link was successfully created." }}
         format.json { render :show, status: :created, location: @link }
       else
         @link = @link.becomes(Link)
@@ -43,6 +44,7 @@ class LinksController < ApplicationController
         format.html { redirect_to link_url(@link), success: "Link was successfully updated." }
         format.json { render :show, status: :ok, location: @link }
       else
+        @link = @link.becomes(Link)
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @link.errors, status: :unprocessable_entity }
       end
@@ -54,7 +56,7 @@ class LinksController < ApplicationController
     @link.destroy!
 
     respond_to do |format|
-      format.html { redirect_to links_url, notice: "Link was successfully destroyed." }
+      format.html { redirect_to links_url, flash: { success: "Link was successfully destroyed." }}
       format.json { head :no_content }
     end
   end
@@ -74,9 +76,7 @@ class LinksController < ApplicationController
   end
 
   def link_params
-    params.require(:link).permit(:url, :name, :type, :expiration_date).tap do |whitelisted|
-      whitelisted[:password] = params[:link][:password] if params[:link][:type] == 'PrivateLink'
-    end
+    params.require(:link).permit(:url, :name, :type, :password, :expiration_date)
   end
 
   def authorized?(link)
