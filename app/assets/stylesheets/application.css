@@ -142,7 +142,7 @@ footer {
     height: 300px;  
 }
 
-div.alert.alert-notice.alert-outline.alert-dismissible.fade.show {
+div.alert.alert-notice.alert-dismissible.fade.show {
     border-color: #c1bfbf;
     background: linear-gradient(90deg, #dad6d6 0%, #e0e0e0 50%, #dad6d6 100%);
 }

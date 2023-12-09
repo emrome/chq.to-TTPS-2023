@@ -46,18 +46,19 @@
         </div>
 
         <div class="actions">
-          <%= f.submit "Update", class: "btn btn-outline-primary mt-3" %>
+          <%= f.submit "Save", class: "btn btn-outline-success mt-3" %>
         </div>
     <% end %>
   </div>
   <div class="card-footer">
-    <h5 class="card-title">Cancel My Account</h5>
     <div>
-      Unhappy? 
-      <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", method: :delete }, class: "btn btn-outline-danger"%>
-    </div>
-
+      Unhappy?
+      <button id="deleteButton" data-controller="modal" data-modal-path="<%= registration_path(resource_name) %>" class="btn btn-outline-danger" data-action="click->modal#open">
+        Cancel My Account
+      </button>
+      </div>
     <%= link_to "Back", :back, class: "btn btn-outline-secondary mt-3" %>
   </div>
 <% end %>
 
+<%= render 'shared/confirmation_modal', path: registration_path(resource_name) %>
