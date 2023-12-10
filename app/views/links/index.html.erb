@@ -7,8 +7,10 @@
         <div class="card-header">
           <%= link.name %>
         </div>
-        <div class="card-body d-flex">
-          <%= render "links/link", link: link %>
+        <div class="card-body d-flex justify-content-between">
+          <div clas="flex-column">
+            <%= render "links/link", link: link %>
+          </div>
           <h6 class="card-title">Actions
             <div class="actions d-flex">
               <%= link_to "Show", link_path(link), class: "btn btn-secondary", style: "margin: 10px;"%>

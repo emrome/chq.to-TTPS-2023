@@ -1,0 +1,12 @@
+<div class="container mt-5">
+  <div class="card mx-auto" style="max-width: 400px;">
+    <div class="card-header">Enter Password</div>
+    <div class="card-body text-center">
+        <h6 class="card-title">Please enter the password to access the content.</h6>
+        <%= form_tag(authorize_access_path(slug: @link.slug), method: :post, remote: true, class: 'mt-3') do %>
+            <%= password_field_tag :password, nil, class: 'form-control' %>
+            <%= submit_tag "Submit", class: 'btn btn-primary mt-3' %>
+        <% end %>
+    </div>
+  </div>
+</div>

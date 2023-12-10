@@ -58,7 +58,7 @@
 }
 
 .navbar {
-    background-color: #382F42;
+    background-color: #3a3244e7;
     padding: 5px;
 }
 
@@ -94,7 +94,7 @@
 }
 
 .dropdown-menu {
-  background-color: #3c3246;
+  background-color: #463c50;
 }
 
 .dropdown-menu a {
@@ -112,7 +112,7 @@
 
 footer {
     display: block;
-    background-color: #382F42;
+    background-color: #3a3244e7;
     color: white;
     text-align: center;
     padding: 5px;

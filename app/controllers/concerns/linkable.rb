@@ -3,7 +3,6 @@ module Linkable
     extend ActiveSupport::Concern
 
     def set_link
-        puts (params)
         @link = Link.find_by(id: params[:id])
         if !user_signed_in?
             flash[:error] = "You need to sign in or sign up before continuing."

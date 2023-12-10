@@ -13,6 +13,10 @@ class Link < ApplicationRecord
     return "#{request.protocol}#{request.host_with_port}/l/#{slug}"
   end
 
+  def allow_access?
+    true
+  end
+
   private
 
   def generate_slug

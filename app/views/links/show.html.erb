@@ -5,12 +5,12 @@
   <div class="card-body">
     <%= render "links/link", link: @link %>
     <% if @link.is_a?(EphemeralLink)%>
-      <p> Accessed: <%= @link.accessible? %></p>
+      <p> Accessed: <%if @link.allow_access?%>Yes <%else%> No <%end%></p>
     <% elsif @link.is_a?(TemporaryLink) %>
-      <p> Expiration: <%= @link.expiration_date.strftime("%m/%d/%Y") %></p>
+      <p> Expiration: <%= @link.expiration_date.strftime("%m/%d/%Y %H:%M") %></p>
     <% end %>
     <p> Created: <%= @link.created_at.strftime("%m/%d/%Y") %></p>
-    <p> Type:: <%= @link.type %></p>
+    <p> Type: <%= @link.type %></p>
   </div>
   <div>
     <div class="actions d-flex">

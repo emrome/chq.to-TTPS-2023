@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   end
 
   resources :links
-  resources :private_links, controller: :links, type: "PrivateLink"
-  resources :regular_links, controller: :links, type: "RegularLink"
-  resources :ephemeral_links, controller: :links, type: "EphemeralLink"
-  resources :temporary_links, controller: :links, type: "TemporaryLink"
+  resources :private_links, controller: :links
+  resources :regular_links, controller: :links
+  resources :ephemeral_links, controller: :links
+  resources :temporary_links, controller: :links
 
   resources :reports, only: [] do
     member do
@@ -19,4 +19,8 @@ Rails.application.routes.draw do
       get 'day_count'
     end
   end
+
+  get 'l/:slug', to: 'access#show'
+  get 'l/:slug/private', to: 'access#private', as: "private_access"
+  post 'l/:slug/private', to: 'access#authorize', as: "authorize_access"
 end

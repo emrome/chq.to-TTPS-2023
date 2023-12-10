@@ -1,0 +1,33 @@
+#error {
+	background-image: url("login-background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+	background-color: #f4f4f4;
+	font-family: 'Roboto', sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	margin: 0;
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.218);
+}
+
+.error-card {
+	background-color: #5e546ac1;
+	color: white;
+	border-radius: 10px;
+	padding: 20px;
+	text-align: center;
+	box-shadow: 0 1px 4px rgb(84, 67, 103), 0 0 40px rgba(88, 63, 117, 0.1) inset;
+	margin: auto;
+	z-index: 1;
+	width: 100%;
+}
