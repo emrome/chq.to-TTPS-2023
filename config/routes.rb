@@ -11,4 +11,12 @@ Rails.application.routes.draw do
   resources :regular_links, controller: :links, type: "RegularLink"
   resources :ephemeral_links, controller: :links, type: "EphemeralLink"
   resources :temporary_links, controller: :links, type: "TemporaryLink"
+
+  resources :reports, only: [] do
+    member do
+      get 'access_logs'
+      get 'date_count'
+      get 'day_count'
+    end
+  end
 end

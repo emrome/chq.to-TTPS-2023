@@ -1,15 +1,6 @@
-<div id="<%= dom_id link %>">
-  <h4 class="card-subtitle mb-2">
-    Name: <%= link.name %>
-  </h4>
-  <p>
-    <strong>Url:</strong>
-    <a href="<%= link.url %>" target="_blank"><%= link.url %></a>
-  </p>
-
-  <p>
-    <strong>Shortened url:</strong>
-    <a href="<%= link.url %>" target="_blank"><%= link.shortened_url(request) %></a>
-  </p>
-
-</div>
+<h6 class="card-title">Url: 
+  <a href="<%= link.url %>"><%= link.url %></a></h6>
+<h6 class="card-title">
+  Shortened Url: 
+  <a href="<%= link.shortened_url(request)%>"><%= link.shortened_url(request) %></a>
+</h6>

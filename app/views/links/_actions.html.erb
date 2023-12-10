@@ -1,0 +1,4 @@
+<%= link_to "Edit", edit_link_path(link), class: "btn btn-success", style: "margin: 10px;" %>
+<%= button_to "Delete", link_path(link), method: :delete, class: "btn btn-danger", style: "margin: 10px;" %>
+<%= link_to "Logs", access_logs_report_path(link), class: "btn btn-outline-warning", style: "margin: 10px;" %>
+<%= link_to "Counts", day_count_report_path(link), class: "btn btn-outline-primary", style: "margin: 10px;" %>

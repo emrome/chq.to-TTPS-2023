@@ -1,13 +1,24 @@
-<h1>Links</h1>
-
+<h1 class="mb-3 text-center">Items</h1>
 <%= link_to "Create a link", new_link_path, class: "btn btn-outline-primary mb-3" %>
 <div id="links">
-  <% @links.each do |link| %>
-  <div class="list-group-item">
-    <%= render "links/link", link: link %>
-    <p>
-      <%= link_to "Show this link", link %>
-    </p>
-  </div>
+  <% if @links.any? %>
+    <% @links.each do |link| %>
+      <div class="card mb-3">
+        <div class="card-header">
+          <%= link.name %>
+        </div>
+        <div class="card-body d-flex">
+          <%= render "links/link", link: link %>
+          <h6 class="card-title">Actions
+            <div class="actions d-flex">
+              <%= link_to "Show", link_path(link), class: "btn btn-secondary", style: "margin: 10px;"%>
+              <%= render "links/actions", link: link%>
+            </div>
+          </h6>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p>No links available. Create one above.</p>
   <% end %>
 </div>

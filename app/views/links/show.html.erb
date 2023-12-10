@@ -1,7 +1,21 @@
-<%= render "links/link", link: @link %>
-<div>
-  <%= link_to "Edit this link", edit_link_path(@link), class: "btn btn-success-outline" %>
-  <%= link_to "Back to links", links_path, class: "btn btn-secondary-outline"%>
-
-  <%= button_to "Destroy this link", @link, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger-outline" %>
+<div class="card mb-3">
+  <div class="card-header">
+    Link
+  </div>
+  <div class="card-body">
+    <%= render "links/link", link: @link %>
+    <% if @link.is_a?(EphemeralLink)%>
+      <p> Accessed: <%= @link.accessible? %></p>
+    <% elsif @link.is_a?(TemporaryLink) %>
+      <p> Expiration: <%= @link.expiration_date.strftime("%m/%d/%Y") %></p>
+    <% end %>
+    <p> Created: <%= @link.created_at.strftime("%m/%d/%Y") %></p>
+    <p> Type:: <%= @link.type %></p>
+  </div>
+  <div>
+    <div class="actions d-flex">
+    <%= render "links/actions", link: @link %>
+    <%= link_to "Back", :back, class: "btn btn-outline-secondary", style: "margin: 10px;" %>
+    </div>
+  </div>
 </div>
