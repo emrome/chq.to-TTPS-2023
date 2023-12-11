@@ -2,6 +2,7 @@
 <%= link_to "Create a link", new_link_path, class: "btn btn-outline-primary mb-3" %>
 <div id="links">
   <% if @links.any? %>
+    <%= paginate @links %>
     <% @links.each do |link| %>
       <div class="card mb-3">
         <div class="card-header">

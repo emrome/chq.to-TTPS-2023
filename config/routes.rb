@@ -16,7 +16,6 @@ Rails.application.routes.draw do
     member do
       get 'access_logs'
       get 'date_count'
-      get 'day_count'
     end
   end
 

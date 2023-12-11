@@ -69,9 +69,6 @@ rails db:seed
 
 Separación en distintos controladores con el objetivo de evitar la concentración de toda la lógica de la aplicación en un único controlador, que facilita la organización del código según la lógica funcional específica de cada componente.
 
-### Reportes
-* Sobre la cantidad de accesos por día, se puede visualizar los accesos según día de la semana o agrupados por fecha de acceso.
-
 
 ## Datos relevantes generados en el archivo seed:
 
@@ -85,21 +82,24 @@ Separación en distintos controladores con el objetivo de evitar la concentraci�
 ### Enlaces:
 ### Enlaces:
 
-| Nombre          | URL                                                | Tipo de Enlace | Dueño      | Fecha de Expiración | Contraseña  | Visitas |
+| Nombre          | URL                                                | Tipo de Enlace | Dueño      | Fecha de Expiración | Contraseña  | Expirado |
 | --------------- | -------------------------------------------------- | -------------- | ---------- | ------------------- | ----------- | ------- |
-| Imagine         | [https://www.youtube.com/watch?v=VOgFZfRVaww](https://www.youtube.com/watch?v=VOgFZfRVaww) | Privado        | John Doe   |                   | Imagine123  | 2       |
-| The Godfather   | [https://www.youtube.com/watch?v=sY1S34973zA](https://www.youtube.com/watch?v=sY1S34973zA) | Regular        | John Doe   |                   |             | 2       |
-| Google          | [https://www.google.com/](https://www.google.com/) | Efímero        | John Doe   |                   |             | 0 (No Expirado) |
-| -               | [https://doodles.google/search/](https://doodles.google/search/) | Temporal       | John Doe   | 30 minutos después  |             | 3       |
-| -               | [https://doodles.google/search/](https://doodles.google/search/) | Temporal       | Jane Smith | 1 minutos después   |             | 2       |
-| Google   | [https://www.google.com/](https://www.google.com/) | Efímero        | Jane Smith |                   |             | 1 (Expirado)  |
+| Imagine         | [https://www.youtube.com/watch?v=VOgFZfRVaww](https://www.youtube.com/watch?v=VOgFZfRVaww) | Privado        | John Doe   |                   | Imagine123  |        |
+| The Godfather   | [https://www.youtube.com/watch?v=sY1S34973zA](https://www.youtube.com/watch?v=sY1S34973zA) | Regular        | John Doe   |                   |             |        |
+| Google          | [https://www.google.com/](https://www.google.com/) | Efímero        | John Doe   |                   |             | No |
+| -               | [https://doodles.google/search/](https://doodles.google/search/) | Temporal       | John Doe   | 30 minutos después  |             |        |
+| -               | [https://doodles.google/search/](https://doodles.google/search/) | Temporal       | Jane Smith | 1 minutos después   |             |       |
+| Google   | [https://www.google.com/](https://www.google.com/) | Efímero        | Jane Smith |                   |             | Si  |
 
 **Notas:**
 - La columna "Fecha de Expiración" indica la fecha en que el enlace temporal dejará de funcionar.
 - La columna "Contraseña" se aplica solo a los enlaces privados y temporales.
-- La columna "Visitas" muestra la cantidad de accesos registrados para los enlaces.
+- La columna "Expirado" indica si el link está expirado o no.
 
 ## Gemas instaladas para la aplicación
 - [Bcrypt](https://github.com/codahale/bcrypt-ruby): Encriptación de contraseñas de links
 - [Devise](https://github.com/heartcombo/devise): Manejo de usuarios
+- [Chartkick](https://github.com/ankane/chartkick): Usado para generar grafico de accesos por dia
 - [Groupdate](https://github.com/ankane/groupdate): Usado para agrupar fechas en los reportes
+- [Kaminari](https://github.com/kaminari/kaminari): Paginación de resultados en los logs y links
+- [Faker] (https://github.com/faker-ruby/faker): Generación de datos de prueba

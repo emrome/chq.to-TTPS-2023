@@ -30,22 +30,27 @@ temporary_expired_link = TemporaryLink.create!(url: 'https://doodles.google/sear
 EphemeralLink.create!(name: 'Google',url: 'https://www.google.com/',created_at: DateTime.now - 6.days,user: jane_smith).access_logs.create!(ip_address: "154.85.40.1", access_date: Time.zone.now - 2.days)
 
 # Log access
-# Method to log access for a link
-def log_accesses(link, ip_addresses, access_dates = [])
+# Method to log accesses for a link
+def log_accesses(link, num_ips)
   link.save!
-  ip_addresses.each_with_index do |ip_address, index|
-    date = access_dates[index] || Time.zone.now
-    link.access_logs.create(ip_address: ip_address, access_date: date)
+  num_ips.times do
+    ip_address = Faker::Internet.ip_v4_address
+    num_accesses = rand(10..50)
+
+    num_accesses.times do
+      date = Faker::Time.between(from: link.created_at, to: Time.zone.now)
+      link.access_logs.create(ip_address: ip_address.to_s, access_date: date)
+    end
   end
 end
 
 
 p 'Logging access...'
 
-log_accesses(private_link, ["127.0.0.1", "192.168.142.86"], [Time.zone.now - 7.days, Time.zone.now - 6.days])
-log_accesses(regular_link, ["127.0.0.1", "172.30.0.1"] , [Time.zone.now - 5.days, Time.zone.now - 4.days])
-log_accesses(temporary_link, ["132.0.0.24", "172.30.0.1", "192.168.0.1"], [Time.zone.now - 3.days, Time.zone.now - 2.days])
-log_accesses(temporary_expired_link, ["168.7.10.1", "196.30.0.1"], [Time.zone.now - 2.days, Time.zone.now - 1.days])
+log_accesses(private_link, rand(1..10))
+log_accesses(regular_link, rand(1..10))
+log_accesses(temporary_link, rand(1..10))
+log_accesses(temporary_expired_link, rand(1..10))
 
 
 p 'Done!'

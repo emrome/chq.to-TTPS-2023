@@ -6,6 +6,7 @@
   <%= render 'reports/filters', link: @link %>
 
   <% if @access_logs.any? %>
+    <%= paginate @access_logs %>
     <div class="row justify-content-center">
       <div class="col-md-8">
         <% @access_logs.each do |log| %>

@@ -8,11 +8,11 @@
       </div>
       <div class="form-group col-md-3">
         <%= form.label :start_date, 'Start Date', class: 'form-label' %>
-        <%= form.date_field :start_date, max: params[:end_date] , class: 'form-control', data: { target: 'filter.startDate' } %>
+        <%= form.date_field :start_date, max: params[:end_date] , value: params[:start_date], class: 'form-control', data: { target: 'filter.startDate' } %>
       </div>
       <div class="form-group col-md-3">
         <%= form.label :end_date, 'End Date', class: 'form-label' %>
-        <%= form.date_field :end_date, min: params[:start_date] , class: 'form-control', data: { target: 'filter.endDate' } %>
+        <%= form.date_field :end_date, min: params[:start_date], value: params[:end_date] , class: 'form-control', data: { target: 'filter.endDate' } %>
       </div>
       <div class="form-group col-md-3 text-center mt-3">
         <%= form.submit 'Search', class: 'btn btn-primary' %>
