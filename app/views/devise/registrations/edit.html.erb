@@ -53,12 +53,12 @@
   <div class="card-footer">
     <div>
       Unhappy?
-      <button id="deleteButton" data-controller="modal" class="btn btn-outline-danger" data-action="click->modal#open">
+      <button id="deleteButton<%= resource.id %>" data-controller="modal" class="btn btn-outline-danger" data-action="click->modal#open" data-target="confirmationModal<%= resource.id %>">
         Cancel My Account
       </button>
-      </div>
+    </div>
     <%= link_to "Back", :back, class: "btn btn-outline-secondary mt-3" %>
   </div>
 <% end %>
 
-<%= render 'shared/confirmation_modal', path: registration_path(resource_name) %>
+<%= render 'shared/confirmation_modal', path: registration_path(resource_name), id: resource.id %>

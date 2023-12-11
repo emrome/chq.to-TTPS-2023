@@ -1,4 +1,13 @@
 <%= link_to "Edit", edit_link_path(link), class: "btn btn-success", style: "margin: 10px;" %>
-<%= button_to "Delete", link_path(link), method: :delete, class: "btn btn-danger", style: "margin: 10px;" %>
+<button 
+    id="deleteButton<%= link.id %>"
+    data-controller="modal" 
+    class="btn btn-danger" 
+    data-action="click->modal#open"
+    data-target="confirmationModal<%= link.id %>"
+    style="margin: 10px;"
+>Delete</button>
 <%= link_to "Logs", access_logs_report_path(link), class: "btn btn-outline-warning", style: "margin: 10px;" %>
 <%= link_to "Counts", date_count_report_path(link), class: "btn btn-outline-primary", style: "margin: 10px;" %>
+
+<%= render 'shared/confirmation_modal', path: link_path(link), id: link.id %>

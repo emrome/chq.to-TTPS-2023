@@ -1,10 +1,10 @@
 <div data-controller="modal">
-  <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+  <div class="modal fade" id="confirmationModal<%= id%>" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content" data-modal-content-target="modalContent">
         <div class="modal-header">
           <h5 class="modal-title" id="confirmationModalLabel">Confirmation</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" data-action="click->modal#cancel"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           Are you sure? This action cannot be undone.

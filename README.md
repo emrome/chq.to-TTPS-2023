@@ -97,9 +97,9 @@ Separación en distintos controladores con el objetivo de evitar la concentraci�
 - La columna "Expirado" indica si el link está expirado o no.
 
 ## Gemas instaladas para la aplicación
-- [Bcrypt](https://github.com/codahale/bcrypt-ruby): Encriptación de contraseñas de links
+- [Bcrypt](https://github.com/bcrypt-ruby/bcrypt-ruby): Encriptación de contraseñas de links
 - [Devise](https://github.com/heartcombo/devise): Manejo de usuarios
 - [Chartkick](https://github.com/ankane/chartkick): Usado para generar grafico de accesos por dia
 - [Groupdate](https://github.com/ankane/groupdate): Usado para agrupar fechas en los reportes
 - [Kaminari](https://github.com/kaminari/kaminari): Paginación de resultados en los logs y links
-- [Faker] (https://github.com/faker-ruby/faker): Generación de datos de prueba
+- [Faker](https://github.com/faker-ruby/faker): Generación de datos de prueba

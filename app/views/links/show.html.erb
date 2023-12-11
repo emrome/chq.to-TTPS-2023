@@ -4,6 +4,8 @@
   </div>
   <div class="card-body">
     <%= render "links/link", link: @link %>
+    <% if @link.name %><p>Name:  <%= @link.name %><p><% end %>
+
     <% if @link.is_a?(EphemeralLink)%>
       <p> Accessed: <%if @link.allow_access?%>Yes <%else%> No <%end%></p>
     <% elsif @link.is_a?(TemporaryLink) %>
