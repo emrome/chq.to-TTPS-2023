@@ -5,7 +5,7 @@
 <div class="card-body">
   <%= render "form", link: @link %>
   <br>
-  <%= button_to "Show this link", @link, class: "btn btn-outline-secondary mb-3" %>
+  <%= link_to "Show this link", link_path(@link), class: "btn btn-outline-secondary mb-3" %>
   <%= link_to "Back to links", links_path %>
 </div>
 <% end %>

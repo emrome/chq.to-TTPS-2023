@@ -32,7 +32,7 @@ class LinksController < ApplicationController
         format.html { redirect_to link_url(@link), flash: { success: "Link was successfully created." }}
         format.json { render :show, status: :created, location: @link }
       else
-        @link = @link.becomes(Link)
+        @link = @link.becomes(params[:type].constantize)
         format.json { render json: @link.errors, status: :unprocessable_entity }
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -42,6 +42,7 @@ class LinksController < ApplicationController
   # PATCH/PUT /links/1 or /links/1.json
   def update
     respond_to do |format|
+      @link = @link.becomes(params[:link][:type].constantize)
       if @link.update(link_params)
         format.html { redirect_to link_url(@link), success: "Link was successfully updated." }
         format.json { render :show, status: :ok, location: @link }
