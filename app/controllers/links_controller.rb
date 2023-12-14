@@ -32,7 +32,7 @@ class LinksController < ApplicationController
         format.html { redirect_to link_url(@link), flash: { success: "Link was successfully created." }}
         format.json { render :show, status: :created, location: @link }
       else
-        @link = @link.becomes(params[:type].constantize)
+        @link = @link.becomes(Link)
         format.json { render json: @link.errors, status: :unprocessable_entity }
         format.html { render :new, status: :unprocessable_entity }
       end
